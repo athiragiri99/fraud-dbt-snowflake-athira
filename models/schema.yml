@@ -15,11 +15,11 @@ models:
       - name: transaction_id
         tests: 
           - not_null
-
   - name: fraud_features
     columns:
       - name: customer_id
-        tests: not_null
+        tests: 
+            - not_null
       
               
             
