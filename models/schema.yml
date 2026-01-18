@@ -20,6 +20,11 @@ models:
       - name: customer_id
         tests: 
             - not_null
+      - name: fraud_flag
+        tests: 
+          - not_null
+          - accepted_values:
+              values: [0, 1]
       
               
             
