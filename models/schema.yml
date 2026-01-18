@@ -18,31 +18,10 @@ models:
   - name: fraud_features
     columns:
       - name: customer_id
-        tests: not_null
-      yaml
-
-version: 2
-
-sources:
-  - name: fraud_raw
-    database: FRAUD_RAW
-    schema: PUBLIC
-    tables:
-      - name: transaction_raw
-
-models:
-  - name: stg_transactions
-    columns:
-      - name: transaction_id
-        tests: 
-          - not_null
-      - name: fraud_features
-        columns:
-          - name: customer_id
-            tests: 
-              - not_null
-          - name: fraud_flag
-            tests: 
+          tests: 
+            - not_null
+      - name: fraud_flag
+          tests: 
               - accepted_values:
                   values: [0, 1]
             
