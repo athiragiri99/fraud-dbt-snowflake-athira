@@ -1,1 +1,9 @@
-
+sql
+select
+transaction_id,
+cutomer_id,
+amount,
+transaction_time,
+merchant,
+is_fraud
+from{{source('fraud_raw','transactions_raw')}}
