@@ -1,1 +1,14 @@
+yaml
 
+name: fraud_project
+version: '1.0'
+config-version: 2
+
+profile: fraud_project
+
+models:
+  fraud_project:
+    staging:
+      materialized: view
+    features:
+      materialized: table
