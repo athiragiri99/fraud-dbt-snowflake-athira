@@ -13,3 +13,15 @@ fraud_project:
     database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
     Schema: DEV
     threads: 4
+    
+    prod:  # ← Production deployment
+      type: snowflake
+      account: {{env_var('SNOWFLAKE_ACCOUNT')}}
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_PROD_ROLE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_PROD_WAREHOUSE') }}"
+      database: FRAUD_PROD
+      schema: MART
+      threads: 8
+
