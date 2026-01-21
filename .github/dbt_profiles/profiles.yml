@@ -14,7 +14,7 @@ fraud_project:
     Schema: DEV
     threads: 4
     
-    prod:  # ← Production deployment
+    prod:  
       type: snowflake
       account: {{env_var('SNOWFLAKE_ACCOUNT')}}
       user: "{{ env_var('SNOWFLAKE_USER') }}"
