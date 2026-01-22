@@ -1,27 +1,23 @@
-yaml
-
 fraud_project:
   target: dev
-  outputs: 
+  outputs:
     dev:
-    type: snowflake
-    account: {{env_var('SNOWFLAKE_ACCOUNT')}}
-    user: "{{ env_var('SNOWFLAKE_USER') }}"
-    password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
-    role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-    warehouse: COMPUTE_WH
-    database: FRAUD_DEV
-    schema: DEV
-    threads: 4
- 
-    
-    prod:  
       type: snowflake
-      account: {{env_var('SNOWFLAKE_ACCOUNT')}}
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       user: "{{ env_var('SNOWFLAKE_USER') }}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+      schema: DEV
+      threads: 4
+    prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_PROD_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PROD_PASSWORD') }}"
       role: "{{ env_var('SNOWFLAKE_PROD_ROLE') }}"
-      warehouse: COMPUTE_WH_PROD
+      warehouse: "{{ env_var('SNOWFLAKE_PROD_WAREHOUSE') }}"
       database: FRAUD_PROD
       schema: MART
       threads: 8
