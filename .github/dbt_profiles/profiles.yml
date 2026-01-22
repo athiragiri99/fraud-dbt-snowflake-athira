@@ -9,10 +9,11 @@ fraud_project:
     user: "{{ env_var('SNOWFLAKE_USER') }}"
     password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
     role: "{{ env_var('SNOWFLAKE_ROLE') }}"
-    warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
-    database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
-    Schema: DEV
+    warehouse: COMPUTE_WH
+    database: FRAUD_DEV
+    schema: DEV
     threads: 4
+ 
     
     prod:  
       type: snowflake
@@ -20,7 +21,7 @@ fraud_project:
       user: "{{ env_var('SNOWFLAKE_USER') }}"
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       role: "{{ env_var('SNOWFLAKE_PROD_ROLE') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_PROD_WAREHOUSE') }}"
+      warehouse: COMPUTE_WH_PROD
       database: FRAUD_PROD
       schema: MART
       threads: 8
