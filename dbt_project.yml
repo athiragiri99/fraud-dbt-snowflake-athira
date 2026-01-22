@@ -1,14 +1,14 @@
-yaml
-
-name: fraud_project
-version: '1.0'
+name: 'fraud_project'
+version: '1.0.0'
 config-version: 2
-
-profile: fraud_project
+profile: 'fraud_project'
 
 models:
   fraud_project:
     staging:
-      materialized: view
-    features:
-      materialized: table
+      +materialized: view
+      +schema: DEV  # Dev writes to FRAUD_DEV.DEV
+    mart:
+      +materialized: incremental
+      +schema: "{{ target.schema }}"  # Dev→DEV.MART, Prod→PROD.MART
+      +incremental_strategy: merge
